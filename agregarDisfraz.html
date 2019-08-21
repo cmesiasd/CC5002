@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="agregarDisfraz.css">
+        <script src="validator.js"></script>
+        <script src="regiones.js"></script>
+        <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+        <title>Reciclador de Disfraces</title>
+    </head>
+    
+<body>
+
+<h1>Agrega tu Disfraz</h1>
+
+<div id="container">
+  <form id="myform" method="post" action="" onsubmit="dataValidator();">
+    <script src="regiones.js"></script>
+    <label for="nombre-disfraz" class="text-field">Región</label>
+    <select id="regiones"></select>
+
+    <label for="nombre-disfraz" class="text-field">Comuna</label>
+    <select id="comunas"></select>
+
+    <label for="nombre-disfraz" class="text-field">Nombre disfraz</label>
+    <input type="text" id="nombre-disfraz" name="nombre" size="20" placeholder="Nombre disfraz">
+
+    <label for="descripcion-disfraz" class="text-field">Teléfono</label>
+    <input type="text" id="descripcion-disfraz" name="descripcion-disfraz" placeholder="Ingrese su teléfono acá">
+
+    <label for="direccion" class="text-field">Dirección</label>
+    <input type="text" id="direccion" name="direccion" placeholder="Dirección">
+
+    
+
+    <label for="comuna" class="text-field">Comuna</label>
+    <select id="comuna" name="comuna">
+      <option value="1000">Santiago</option>
+      <option value="1010">Providencia</option>
+      <option value="1011">Recoleta</option>
+    </select>
+
+    <label for="masa" class="text-field">Tipo de Masa</label>
+    <br>
+    <br>
+    <label for="masa1" class="text-field">Masa Delgada</label>
+    <input type="radio" name="masa" value="1">
+    <label for="masa1" class="text-field">Masa Normal</label>
+    <input type="radio" name="masa" value="2">   
+
+    <label for="ingrediente" class="text-field">Ingredientes</label>
+    <select id="ingrediente" name="ingrediente" onclick="changeIngredients();">
+      <option value="0">Seleccione un ingrediente</option>
+      <option value="1">Pepperoni</option>
+      <option value="2">Aceitunas</option>
+      <option value="3">Carne</option>
+    </select>
+
+    <img id="carne" src="carne.jpg" style="display: none;" height="100" width="100">
+    <img id="pepperoni" src="pepperoni.jpg" style="display: none;" height="100" width="100">
+    <img id="aceitunas" src="aceitunas.jpg" style="display: none;" height="100" width="100">
+    <br>
+
+    <label for="comentario" class="text-field">Comentarios</label>
+    <textarea id="comentario" name="comentario" placeholder="Ingrese comentarios acá"></textarea>
+
+    <input type="submit" value="Crear mi pizza">
+    <button id="myButton" onclick="cleanForm();">Limpiar</button>
+  </form>
+</div>
+
+</body>
+</html>
