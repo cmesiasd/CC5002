@@ -1,9 +1,9 @@
-h1#titulo{
+h1.titulo{
     color: whitesmoke!important;
 }
 
 body{
-    background: url(bg2.jpg) !important;
+    background: url(../image/bg2.jpg) !important;
 }
 
 #menu{
