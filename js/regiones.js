@@ -1,27 +1,27 @@
 var RegionesYcomunas = {
 
 	"regiones": [{
-			"NombreRegion": "Arica y Parinacota",
+			"NombreRegion": "Región de Arica y Parinacota",
 			"comunas": ["Arica", "Camarones", "Putre", "General Lagos"]
 	},
 		{
-			"NombreRegion": "Tarapacá",
+			"NombreRegion": "Región de Tarapacá",
 			"comunas": ["Iquique", "Alto Hospicio", "Pozo Almonte", "Camiña", "Colchane", "Huara", "Pica"]
 	},
 		{
-			"NombreRegion": "Antofagasta",
+			"NombreRegion": "Región de Antofagasta",
 			"comunas": ["Antofagasta", "Mejillones", "Sierra Gorda", "Taltal", "Calama", "Ollagüe", "San Pedro de Atacama", "Tocopilla", "María Elena"]
 	},
 		{
-			"NombreRegion": "Atacama",
+			"NombreRegion": "Región de Atacama",
 			"comunas": ["Copiapó", "Caldera", "Tierra Amarilla", "Chañaral", "Diego de Almagro", "Vallenar", "Alto del Carmen", "Freirina", "Huasco"]
 	},
 		{
-			"NombreRegion": "Coquimbo",
+			"NombreRegion": "Región de Coquimbo",
 			"comunas": ["La Serena", "Coquimbo", "Andacollo", "La Higuera", "Paiguano", "Vicuña", "Illapel", "Canela", "Los Vilos", "Salamanca", "Ovalle", "Combarbalá", "Monte Patria", "Punitaqui", "Río Hurtado"]
 	},
 		{
-			"NombreRegion": "Valparaíso",
+			"NombreRegion": "Región de Valparaíso",
 			"comunas": ["Valparaíso", "Casablanca", "Concón", "Juan Fernández", "Puchuncaví", "Quintero", "Viña del Mar", "Isla de Pascua", "Los Andes", "Calle Larga", "Rinconada", "San Esteban", "La Ligua", "Cabildo", "Papudo", "Petorca", "Zapallar", "Quillota", "Calera", "Hijuelas", "La Cruz", "Nogales", "San Antonio", "Algarrobo", "Cartagena", "El Quisco", "El Tabo", "Santo Domingo", "San Felipe", "Catemu", "Llaillay", "Panquehue", "Putaendo", "Santa María", "Quilpué", "Limache", "Olmué", "Villa Alemana"]
 	},
 		{
@@ -30,7 +30,7 @@ var RegionesYcomunas = {
 	},
 		{
 			"NombreRegion": "Región del Maule",
-			"comunas": ["Talca", "ConsVtución", "Curepto", "Empedrado", "Maule", "Pelarco", "Pencahue", "Río Claro", "San Clemente", "San Rafael", "Cauquenes", "Chanco", "Pelluhue", "Curicó", "Hualañé", "Licantén", "Molina", "Rauco", "Romeral", "Sagrada Familia", "Teno", "Vichuquén", "Linares", "Colbún", "Longaví", "Parral", "ReVro", "San Javier", "Villa Alegre", "Yerbas Buenas"]
+			"comunas": ["Talca", "Constitución", "Curepto", "Empedrado", "Maule", "Pelarco", "Pencahue", "Río Claro", "San Clemente", "San Rafael", "Cauquenes", "Chanco", "Pelluhue", "Curicó", "Hualañé", "Licantén", "Molina", "Rauco", "Romeral", "Sagrada Familia", "Teno", "Vichuquén", "Linares", "Colbún", "Longaví", "Parral", "ReVro", "San Javier", "Villa Alegre", "Yerbas Buenas"]
 	},
 		{
 			"NombreRegion": "Región del Biobío",
@@ -46,15 +46,15 @@ var RegionesYcomunas = {
 	},
 		{
 			"NombreRegion": "Región de Los Lagos",
-			"comunas": ["Puerto Montt", "Calbuco", "Cochamó", "Fresia", "FruVllar", "Los Muermos", "Llanquihue", "Maullín", "Puerto Varas", "Castro", "Ancud", "Chonchi", "Curaco de Vélez", "Dalcahue", "Puqueldón", "Queilén", "Quellón", "Quemchi", "Quinchao", "Osorno", "Puerto Octay", "Purranque", "Puyehue", "Río Negro", "San Juan de la Costa", "San Pablo", "Chaitén", "Futaleufú", "Hualaihué", "Palena"]
+			"comunas": ["Puerto Montt", "Calbuco", "Cochamó", "Fresia", "Frutillar", "Los Muermos", "Llanquihue", "Maullín", "Puerto Varas", "Castro", "Ancud", "Chonchi", "Curaco de Vélez", "Dalcahue", "Puqueldón", "Queilén", "Quellón", "Quemchi", "Quinchao", "Osorno", "Puerto Octay", "Purranque", "Puyehue", "Río Negro", "San Juan de la Costa", "San Pablo", "Chaitén", "Futaleufú", "Hualaihué", "Palena"]
 	},
 		{
 			"NombreRegion": "Región Aisén del Gral. Carlos Ibáñez del Campo",
 			"comunas": ["Coihaique", "Lago Verde", "Aisén", "Cisnes", "Guaitecas", "Cochrane", "O’Higgins", "Tortel", "Chile Chico", "Río Ibáñez"]
 	},
 		{
-			"NombreRegion": "Región de Magallanes y de la AntárVca Chilena",
-			"comunas": ["Punta Arenas", "Laguna Blanca", "Río Verde", "San Gregorio", "Cabo de Hornos (Ex Navarino)", "AntárVca", "Porvenir", "Primavera", "Timaukel", "Natales", "Torres del Paine"]
+			"NombreRegion": "Región de Magallanes y de la Antártica Chilena",
+			"comunas": ["Punta Arenas", "Laguna Blanca", "Río Verde", "San Gregorio", "Cabo de Hornos (Ex Navarino)", "Antártica", "Porvenir", "Primavera", "Timaukel", "Natales", "Torres del Paine"]
 	},
 		{
 			"NombreRegion": "Región Metropolitana de Santiago",
@@ -74,10 +74,10 @@ jQuery(document).ready(function () {
 		iRegion++;
 	});
 
-	jQuery('#regiones').html(htmlRegion);
-	jQuery('#comunas').html(htmlComunas);
+	jQuery('#region, #region-solicitante').html(htmlRegion);
+	jQuery('#comuna, #comuna-solicitante').html(htmlComunas);
 
-	jQuery('#regiones').change(function () {
+	jQuery('#region, #region-solicitante').change(function () {
 		var iRegiones = 0;
 		var valorRegion = jQuery(this).val();
 		var htmlComuna = '<option value="sin-comuna">Seleccione comuna</option><option value="sin-comuna">--</option>';
@@ -91,18 +91,18 @@ jQuery(document).ready(function () {
 			}
 			iRegiones++;
 		});
-		jQuery('#comunas').html(htmlComuna);
+		jQuery('#comuna, #comuna-solicitante').html(htmlComuna);
 	});
-	jQuery('#comunas').change(function () {
+	jQuery('#comuna, #comuna-solicitante').change(function () {
 		if (jQuery(this).val() == 'sin-region') {
-			alert('selecciones Región');
+			alert('Debes seleccionar Región');
 		} else if (jQuery(this).val() == 'sin-comuna') {
-			alert('selecciones Comuna');
+			alert('Debes seleccionar Comuna');
 		}
 	});
-	jQuery('#regiones').change(function () {
+	jQuery('#region, #region-solicitante').change(function () {
 		if (jQuery(this).val() == 'sin-region') {
-			alert('selecciones Región');
+			alert('Debe seleccionar Región');
 		}
 	});
 

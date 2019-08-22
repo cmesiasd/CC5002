@@ -13,24 +13,12 @@
 
 <body>
 	<div class="container-fluid bg-dark">
-		<h1 class="titulo">Agrega tu disfraz</h1>
+		<h1 class="titulo">Publicar pedido</h1>
 	</div>
 
 	<div class="container">
 		<form id="myform" method="post" action="#" onsubmit="dataValidator();">
 
-			<!-- Region -->
-			<div class="form-group">
-				<label for="region" class="text-field">Región</label>
-				<select id="region"></select>
-			</div>
-
-			<!-- Comuna -->
-			<div class="form-group">
-				<label for="comuna" class="text-field">Comuna</label>
-				<select id="comuna"></select>
-			</div>
-			
 			<!-- Nombre disfraz -->
 			<div class="form-group">
 				<label for="nombre-disfraz" class="text-field">Nombre disfraz</label>
@@ -45,45 +33,50 @@
 					placeholder="Descripción del disfraz">
 			</div>
 
-			<!--Categoria-->
+			<!--Categoria solicitante-->
 			<div class="form-group">
-				<label for="" class="text-field">Categoria</label>
-				<select id="categoria"></select>
+				<label for="categoria-solicitante" class="text-field">Categoria</label>
+				<select id="categoria-solicitante"></select>
 			</div>
 
-			<!--Talla-->
+			<!--Talla solicitante-->
 			<div class="form-group">
-				<label for="talla" class="text-field">Talla</label>
-				<select id="talla"></select>
+				<label for="talla-solicitante" class="text-field">Talla</label>
+				<select id="talla-solicitante"></select>
 			</div>
 
-			<!--Foto-->
+			<!-- Nombre solicitante -->
 			<div class="form-group">
-				<label for="foto-disfraz" class="text-field">Foto Disfraz</label>
-				<br>
-				<input type="file" id="foto-disfraz" name="foto-disfraz">
-			</div>
-
-			<!-- Nombre contacto -->
-			<div class="form-group">
-				<label for="nombre" class="text-field">Nombre contacto</label>
-				<input type="text" id="nombre" name="nombre" class="form-control" size="20"
+				<label for="nombre-solicitante" class="text-field">Nombre contacto</label>
+				<input type="text" id="nombre-solicitante" name="nombre-solicitante" class="form-control" size="20"
 					placeholder="Nombre contacto">
 			</div>
 
-			<!-- Email contacto -->
+			<!-- Email solicitante -->
 			<div class="form-group">
-				<label for="email" class="text-field">Email contacto</label>
-				<input type="email" class="form-control" name="email" id="email" placeholder="user@mail.com">
+				<label for="email-solicitante" class="text-field">Email contacto</label>
+				<input type="email" class="form-control" name="email-solicitante" id="email-solicitante" placeholder="user@mail.com">
 			</div>
 
-			<!-- Celular contacto -->
+			<!-- Celular solicitante -->
 			<div class="form-group">
-				<label for="celular" class="text-field">Numero celular contacto</label>
-				<input type="text" class="form-control" name="celular" id="celular" placeholder="987654321">
+				<label for="celular-solicitante" class="text-field">Numero celular contacto</label>
+				<input type="text" class="form-control" name="celular-solicitante" id="celular-solicitante" placeholder="987654321">
 			</div>
 
-			<input class="btn-success" type="submit" value="Agregar disfraz">
+			<!-- Region solicitante-->
+			<div class="form-group">
+				<label for="region-solicitante" class="text-field">Región</label>
+				<select id="region-solicitante"></select>
+			</div>
+
+			<!-- Comuna solicitante-->
+			<div class="form-group">
+				<label for="comuna-solicitante" class="text-field">Comuna</label>
+				<select id="comuna-solicitante"></select>
+			</div>
+
+			<input class="btn-success" type="submit" value="Publicar pedido">
 			<button id="myButton" class="btn-danger" onclick="cleanForm();">Limpiar</button>
 		</form>
 	</div>
