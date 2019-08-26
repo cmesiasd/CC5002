@@ -4,14 +4,14 @@
   */
 
 function nameValidator(container) {
-    var nombre  = document.getElementsByName("nombre")[0].value;
+    var nombre  = document.getElementsByName("nombre-disfraz").value;
     var regex = /^[a-zA-Z]*$/;
-    if (nombre.length > 20) {
-        alert("Su nombre no debe exceder más de 20 carácteres ");
+    if (nombre.length > 30) {
+        alert("Su nombre no debe exceder más de 30 carácteres ");
         return false;
     }
     if (!regex.test(nombre)) {
-        alert(("Su nombre solo puede contener letras"   ));
+        alert("Su nombre solo puede contener letras");
         return false;
     }
     return true;
@@ -89,4 +89,5 @@ function changeIngredients() {
 function cleanForm() {
     document.getElementById("myForm").reset();
 }
+
 

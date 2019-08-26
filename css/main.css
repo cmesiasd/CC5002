@@ -1,5 +1,9 @@
 h1.titulo{
-    color: whitesmoke!important;
+    color: whitesmoke !important;
+}
+
+.table-head{
+    color: whitesmoke !important;
 }
 
 body{

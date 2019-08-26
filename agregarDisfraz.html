@@ -34,15 +34,14 @@
 			<!-- Nombre disfraz -->
 			<div class="form-group">
 				<label for="nombre-disfraz" class="text-field">Nombre disfraz</label>
-				<input type="text" id="nombre-disfraz" name="nombre" size="20" class="form-control"
+				<input type="text" id="nombre-disfraz" name="nombre" class="form-control"
 					placeholder="Nombre disfraz">
 			</div>
 
 			<!-- Descripcion disfraz -->
 			<div class="form-group">
 				<label for="descripcion-disfraz" class="text-field">Descripción disfraz</label>
-				<input type="text" id="descripcion-disfraz" name="descripcion-disfraz" class="form-control"
-					placeholder="Descripción del disfraz">
+				<textarea name="descripcion-disfraz" id="descripcion-disfraz" cols="40" rows="8" placeholder="Descripción disfraz"></textarea>
 			</div>
 
 			<!--Categoria-->
@@ -61,7 +60,14 @@
 			<div class="form-group">
 				<label for="foto-disfraz" class="text-field">Foto Disfraz</label>
 				<br>
-				<input type="file" id="foto-disfraz" name="foto-disfraz">
+				<div class="row">
+					<div class="col-9">
+					<input type="file" class="archivos" id="foto-disfraz" name="foto-disfraz">
+					</div>
+					<div class="col-3">
+					<button class="btn-info" onclick="return add_image()" id="mas">Agregar otro archivo</button>
+				</div>
+				</div>
 			</div>
 
 			<!-- Nombre contacto -->
@@ -89,6 +95,7 @@
 	</div>
 
 	<!---->
+	<script src="js/agregar.js"></script>
 	<script src="js/regiones.js"></script>
 	<script src="js/categorias.js"></script>
 </body>
