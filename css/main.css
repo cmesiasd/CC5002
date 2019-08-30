@@ -1,5 +1,6 @@
 h1.titulo{
     color: whitesmoke !important;
+    text-shadow: 2px 2px 6px #0057f8;
 }
 
 .table-head{
@@ -8,8 +9,15 @@ h1.titulo{
 
 body{
     background: url(../image/bg2.jpg) !important;
+    font-family: 'Roboto', sans-serif;
 }
 
 #menu{
     width: 30%;
+    font-size: 110%
+}
+
+#button-add{
+    border: 2px solid black;
+    border-radius: 10px;
 }

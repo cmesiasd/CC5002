@@ -1,12 +1,17 @@
 <!DOCTYPE html>
+<html lang="es">
 
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
 	<link rel="stylesheet" href="css/agregarDisfraz.css">
 	<link rel="stylesheet" href="css/boostrapw3c.css">
 	<link rel="stylesheet" href="css/main.css">
-	<script src="js/validator.js"></script>
-	<script src="js/regiones.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+	
 	<script src="js/jquery-3.4.1.min.js"></script>
 	<title>Reciclador de Disfraces</title>
 </head>
@@ -55,13 +60,15 @@
 			<!-- Email solicitante -->
 			<div class="form-group">
 				<label for="email-solicitante" class="text-field">Email contacto</label>
-				<input type="email" class="form-control" name="email-solicitante" id="email-solicitante" placeholder="user@mail.com">
+				<input type="email" class="form-control" name="email-solicitante" id="email-solicitante"
+					placeholder="user@mail.com">
 			</div>
 
 			<!-- Celular solicitante -->
 			<div class="form-group">
 				<label for="celular-solicitante" class="text-field">Numero celular contacto</label>
-				<input type="text" class="form-control" name="celular-solicitante" id="celular-solicitante" placeholder="987654321">
+				<input type="text" class="form-control" name="celular-solicitante" id="celular-solicitante"
+					placeholder="987654321">
 			</div>
 
 			<!-- Region solicitante-->
@@ -76,14 +83,22 @@
 				<select id="comuna-solicitante"></select>
 			</div>
 
-			<input class="btn-success" type="submit" value="Publicar pedido">
-			<button id="myButton" class="btn-danger" onclick="cleanForm();">Limpiar</button>
+			<div class="row">
+				<div class="col-6">
+					<input class="btn-success" type="submit" value="Publicar pedido">
+				</div>
+				<div class="col-6">
+					<button class="btn-danger mt-2" onclick="cleanForm();">Limpiar</button>
+				</div>
+			</div>
 		</form>
 	</div>
 
-	<!---->
+	<!-- Scripts -->
 	<script src="js/regiones.js"></script>
 	<script src="js/categorias.js"></script>
+	<script src="js/validator.js"></script>
+	<script src="js/regiones.js"></script>
 </body>
 
 </html>
