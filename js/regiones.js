@@ -1,3 +1,7 @@
+/**
+ * jQuery para validar y seleccionar Región y Comuna
+ */
+
 var RegionesYcomunas = {
 
 	"regiones": [{

@@ -1,3 +1,6 @@
+/**
+ *  Script para agregar más imagenes con un boton
+ */
 var countImage = 0;
 
 function add_image() {

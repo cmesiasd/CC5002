@@ -1,3 +1,6 @@
+/**
+ * jQuery para validar y seleccionar Categoría y Tallas
+ */
 var CategoriasYTallas = {
 
 	"categorias": [{
