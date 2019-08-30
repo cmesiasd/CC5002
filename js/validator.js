@@ -5,7 +5,8 @@
 
  function nameCostumeValidator(container) {
      var nombreDisfraz = document.getElementsByName("nombre-disfraz")[0].value;
-     var regex = /^[a-zA-Z]*$/;
+     //var regex = /^[a-zA-Z]*$/;
+     var regex = /^[a-zA-Z]\d+(([',. -][a-zA-Z ]\d)?[a-zA-Z]\d*)*$/;
      if (nombreDisfraz.length > 30 || nombreDisfraz.length == 0) {
          alert("Su nombre de disfraz no debe exceder más de 30 carácteres y no puedo ser vacío");
          return false;
@@ -36,13 +37,14 @@
 
  function nameValidator(container) {
      var nombre = document.getElementsByName("nombre")[0].value;
-     var regex = /^[a-zA-Z]*$/;
+     //var regex = /^[a-zA-Z]*$/;
+     var regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
      if (nombre.length > 30 || nombre.length < 3) {
          alert("Su nombre de disfraz debe tener al menos 3 carácteres y menos de 30 carácteres");
          return false;
      }
      if (!regex.test(nombre)) {
-         alert("Su nombre de disfraz solo puede contener letras");
+         alert("Ingrese un nombre válido");
          return false;
      }
      return true;
