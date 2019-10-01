@@ -22,16 +22,16 @@
     <div class="container bg-dark justify-content-center" id="menu">
         <!-- Botones menu principal -->
         <div class="row bg-dark">
-            <button class="btn-primary" onclick="location.href='agregarDisfraz.html'">Agregar disfraz</button>
+            <button class="btn-primary" onclick="location.href='agregarDisfraz.php'">Agregar disfraz</button>
         </div>
         <div class="row bg-dark">
-            <button class="btn-primary" onclick="location.href='verDisfraces.html'">Ver disfraces</button>
+            <button class="btn-primary" onclick="location.href='verDisfraces.php'">Ver disfraces</button>
         </div>
         <div class="row bg-dark">
-            <button class="btn-primary" onclick="location.href='publicarPedido.html'">Publicar pedido</button>
+            <button class="btn-primary" onclick="location.href='publicarPedido.php'">Publicar pedido</button>
         </div>
         <div class="row bg-dark">
-            <button class="btn-primary" onclick="location.href='verPedidos.html'">Ver pedidos</button>
+            <button class="btn-primary" onclick="location.href='verPedidos.php'">Ver pedidos</button>
         </div>
     </div>
 

@@ -79,10 +79,10 @@
         <div class="row justify-content-center">
             <div class="col-4"></div>
             <div class="col-2">
-                <a href="index.html"><i class="fa fa-home fa-4x"></i></a>
+                <a href="index.php"><i class="fa fa-home fa-4x"></i></a>
             </div>
             <div class="col-2">
-                <a href="verPedidos.html"><i class="fa fa-arrow-left fa-4x"></i></a>
+                <a href="verPedidos.php"><i class="fa fa-arrow-left fa-4x"></i></a>
             </div>
             <div class="col-4"></div>
         </div>
