@@ -21,10 +21,12 @@ function nameCostumeValidator(container) {
  * Valida que el se adjunte al menos una foto
  */
 function fileValidator(container) {
-	var file = document.getElementById("foto-disfraz").files;
+	var file = document.getElementsByName("foto-disfraz")[0].value
 	if (file.length == 0) {
 		alert("Debe adjuntar un archivo");
+		return false;
 	}
+	return true;
 }
 
 /**
@@ -47,8 +49,9 @@ function descriptionValidator(container) {
  */
 function nameValidator(container) {
 	var nombre = document.getElementsByName("nombre")[0].value;
-	//var regex = /^[a-zA-Z]*$/;
-	var regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
+	var regex = /^[a-zA-Z]*$/;
+	console.log(nombre)
+	//var regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
 	if (nombre.length > 80 || nombre.length < 3) {
 		alert("Su nombre debe tener al menos 3 carácteres y menos de 30 carácteres");
 		return false;
@@ -104,7 +107,6 @@ function emailValidator(container) {
  */
 function regionValidator(container) {
 	var region = document.getElementsByName("region")[0].value;
-	console.log(region);
 	if (region == 'sin-region') {
 		alert("Debe seleccionar una region");
 		return false;
@@ -118,9 +120,33 @@ function regionValidator(container) {
  */
 function comunaValidator(container) {
 	var comuna = document.getElementsByName("comuna")[0].value;
-	console.log(comuna);
 	if (comuna == 'sin-comuna') {
 		alert("Debe seleccionar una comuna");
+		return false;
+	}
+	
+	return true;
+}
+
+/**
+ * Valida que categoría sea correcta
+ */
+function categoriaValidator(container) {
+	var categoria = document.getElementsByName("categoria")[0].value;
+	if (categoria == 'sin-categoria') {
+		alert("Debe seleccionar una categoria");
+		return false;
+	}
+	return true;
+}
+
+/**
+ * Valida que la comuna sea correcta
+ */
+function tallaValidator(container) {
+	var talla = document.getElementsByName("talla")[0].value;
+	if (talla == 'sin-talla') {
+		alert("Debe seleccionar una talla");
 		return false;
 	}
 	
@@ -136,9 +162,9 @@ function dataValidator() {
 
 	if (regionValidator(container) && comunaValidator(container) &&
 		nameCostumeValidator(container) && descriptionValidator(container) &&
+		categoriaValidator(container) && tallaValidator(container) &&
 		fileValidator(container) && nameValidator(container) && emailValidator(container) &&
 		phoneValidator(container)) {
-
 		return true;
 	}
 	
