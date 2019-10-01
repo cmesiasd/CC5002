@@ -4,9 +4,9 @@
 
 function nameCostumeValidator(container) {
 	var nombreDisfraz = document.getElementsByName("nombre-disfraz")[0].value;
-	//var regex = /^[a-zA-Z]*$/;
-	var regex = /^[a-zA-Z]\d+(([',. -][a-zA-Z ]\d)?[a-zA-Z]\d*)*$/;
-	if (nombreDisfraz.length > 30 || nombreDisfraz.length == 0) {
+	var regex = /^[a-zA-Z]*$/;
+	//var regex = /^[a-zA-Z]\d+(([',. -][a-zA-Z ]\d)?[a-zA-Z]\d*)*$/;
+	if (nombreDisfraz.length > 30 || nombreDisfraz.length === 0) {
 		alert("Su nombre de disfraz no debe exceder más de 30 carácteres y no puedo ser vacío");
 		return false;
 	}
@@ -50,7 +50,7 @@ function nameValidator(container) {
 	//var regex = /^[a-zA-Z]*$/;
 	var regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
 	if (nombre.length > 80 || nombre.length < 3) {
-		alert("Su nombre de disfraz debe tener al menos 3 carácteres y menos de 30 carácteres");
+		alert("Su nombre debe tener al menos 3 carácteres y menos de 30 carácteres");
 		return false;
 	}
 	if (!regex.test(nombre)) {
@@ -99,6 +99,33 @@ function emailValidator(container) {
 	return true;
 }
 
+/**
+ * Valida que región sea correcta
+ */
+function regionValidator(container) {
+	var region = document.getElementsByName("region")[0].value;
+	console.log(region);
+	if (region == 'sin-region') {
+		alert("Debe seleccionar una region");
+		return false;
+	}
+	
+	return true;
+}
+
+/**
+ * Valida que la comuna sea correcta
+ */
+function comunaValidator(container) {
+	var comuna = document.getElementsByName("comuna")[0].value;
+	console.log(comuna);
+	if (comuna == 'sin-comuna') {
+		alert("Debe seleccionar una comuna");
+		return false;
+	}
+	
+	return true;
+}
 
 /**
  * Validación de datos formulario.
@@ -107,12 +134,14 @@ function emailValidator(container) {
 function dataValidator() {
 	container = document.getElementById("container");
 
-	if (nameCostumeValidator(container) && phoneValidator(container) &&
-		emailValidator(container) && nameValidator(container) &&
-		descriptionValidator(container) && fileValidator(container)) {
+	if (regionValidator(container) && comunaValidator(container) &&
+		nameCostumeValidator(container) && descriptionValidator(container) &&
+		fileValidator(container) && nameValidator(container) && emailValidator(container) &&
+		phoneValidator(container)) {
 
 		return true;
 	}
+	
 	return false;
 
 }
