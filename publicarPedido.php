@@ -22,7 +22,7 @@
 	</div>
 
 	<div class="container">
-		<form id="myform" method="post" action="#" onsubmit="return dataValidator();">
+		<form id="myform" method="post" action="procesarPedido.php" onsubmit="return dataValidator();">
 
 			<!-- Nombre disfraz -->
 			<div class="form-group">

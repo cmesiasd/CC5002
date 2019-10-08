@@ -21,7 +21,7 @@
 	</div>
 
 	<div class="container" id="container">
-		<form id="myform" method="post" action="#" onsubmit="return dataValidator();">
+		<form enctype="multipart/form-data" id="myform" method="post" action="procesarDisfraz.php" onsubmit="return dataValidator();">
 
 			<!-- Region -->
 			<div class="form-group">

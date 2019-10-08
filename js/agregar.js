@@ -9,7 +9,7 @@ function add_image() {
         var lastPhoto = "foto-disfraz-" + countImage;
         countImage++;      
         var fotoDisfraz = document.getElementById(lastPhoto);
-        fotoDisfraz.insertAdjacentHTML("afterend", "<br><input type='file' class='archivos' id='foto-disfraz-" + countImage + "' name='foto-disfraz'>");
+        fotoDisfraz.insertAdjacentHTML("afterend", "<br><input type='file' class='archivos' id='foto-disfraz-" + countImage + "' name='foto-disfraz-" + countImage + "'>");
         return false;
     }
     return false;

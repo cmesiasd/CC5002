@@ -24,7 +24,7 @@ var CategoriasYTallas = {
 			"tallas": ["XS", "S", "M", "L", "XL", "XXL"]
 	},
 		{
-			"NombreCategoria": "Adulto Unisex",
+			"NombreCategoria": "Adulto unisex",
 			"tallas": ["XS", "S", "M", "L", "XL", "XXL"]
 	}]
 }
