@@ -1,3 +1,13 @@
+<?php 
+require_once('db_config.php');
+require_once('consultas.php');
+require_once('diccionario.php');
+$id_disfraz = $_GET['id'];
+$value = getInfoDisfraz($id_disfraz);
+$fotos = getFotoDisfraz($id_disfraz);
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -24,39 +34,31 @@
     <div class="container">
         <!-- Nombre disfraz -->
         <div class="row">
-            <h2 class="titulo">Nombre disfraz: Spider-Man </h2>
-        </div>
-
-        <!-- Región -->
-        <div class="row">
-            <b>Región: </b>
-            <br> Metropolitana
+            <h2 class="titulo">Nombre disfraz:  <?php echo $value['nombre_disfraz'] ?> </h2>
         </div>
 
         <!-- Comuna -->
         <div class="row">
             <b>Comuna:</b>
-            <br> Santiago
+            <br>  <?php echo getComunaNombre($value['comuna']) ?>
         </div>
 
         <!-- Categoria -->
         <div class="row">
             <b>Categoria: </b>
-            <br> Hombre
+            <br>  <?php echo getCategoriaNombre($value['categoria']) ?>
         </div>
 
         <!-- Talla -->
         <div class="row">
             <b>Talla: </b>
-            <br> M
+            <br>  <?php echo getTallaNombre($value['talla']) ?>
         </div>
 
         <!-- Descripción -->
         <div class="row">
             <b>Descripción:</b>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Accusantium ea officia ullam sit maiores et, commodi deserunt quidem quisquam modi id.
-            Magni aliquid repellendus accusamus earum velit nisi commodi quae!
+            <?php echo $value['descripcion'] ?>
         </div>
 
         <!-- Fotos -->
@@ -65,11 +67,9 @@
         </div>
         <div class="row">
             <ul class="galeria" id=galeria>
-                <li class="galeria_item"><img src="images/imagen1.jpg" alt="" class="galeria_img"></li>
-                <li class="galeria_item"><img src="images/imagen2.jpg" alt="" class="galeria_img"></li>
-                <li class="galeria_item"><img src="images/imagen3.jpg" alt="" class="galeria_img"></li>
-                <li class="galeria_item"><img src="images/imagen4.jpg" alt="" class="galeria_img"></li>
-                <li class="galeria_item"><img src="images/imagen5.jpg" alt="" class="galeria_img"></li>
+                <?php foreach ($fotos as $foto => $key) {?>
+                    <li class="galeria_item"><img src="<?php echo $key["ruta_archivo"] . $key["nombre_archivo"] ?>" alt="" class="galeria_img"></li>
+                <?php } ?>
             </ul>
         </div>
 
@@ -79,13 +79,13 @@
         </div>
         <div class="row py-0">
             <div class="col-4 text-left" id="nombre">
-                <b>Nombre</b>: Gabriel Iturra
+                <b>Nombre</b>:  <?php echo $value['nombre_contacto'] ?>
             </div>
             <div class="col-4 text-center" id="email">
-                <b>Email</b>: giturra@mail.cl
+                <b>Email</b>:  <?php echo $value['email_contacto'] ?>
             </div>
             <div class="col-4 text-right" id="celular">
-                <b>Telefono:</b> +569 87654321
+                <b>Telefono:</b>  <?php echo $value['celular_contacto'] ?>
             </div>
         </div>
 

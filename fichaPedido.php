@@ -1,3 +1,11 @@
+<?php 
+require_once('db_config.php');
+require_once('consultas.php');
+require_once('diccionario.php');
+$id_disfraz = $_GET['id'];
+$value = getInfoPedido($id_disfraz);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -24,39 +32,31 @@
     <div class="container">
         <!-- Nombre disfraz -->
         <div class="row">
-            <h2 class="titulo">Nombre disfraz: Spider-Man </h2>
+            <h2 class="titulo">Nombre disfraz: <?php echo $value['nombre_disfraz'] ?></h2>
         </div>
 
         <!-- Categoría -->
         <div class="row">
             <b>Categoria: </b>
-            <br> Hombre
+            <br> <?php echo ucwords(getCategoriaNombre($value['categoria'])) ?>
         </div>
 
         <!-- Talla -->
         <div class="row">
             <b>Talla: </b>
-            <br>S
-        </div>
-
-        <!-- Región -->
-        <div class="row">
-            <b>Región: </b>
-            <br> Metropolitana
+            <br> <?php echo getTallaNombre($value['talla']) ?>
         </div>
 
         <!-- Comuna -->
         <div class="row">
             <b>Comuna:</b>
-            <br> Santiago
+            <br> <?php echo getComunaNombre($value['comuna_solicitante']) ?>
         </div>
 
         <!-- Descripción -->
         <div class="row">
             <b>Descripción:</b>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Accusantium ea officia ullam sit maiores et, commodi deserunt quidem quisquam modi id.
-            Magni aliquid repellendus accusamus earum velit nisi commodi quae!
+            <?php echo $value['descripcion'] ?>
         </div>
 
         <!-- Datos solicitante -->
@@ -65,13 +65,13 @@
         </div>
         <div class="row py-0">
             <div class="col-4 text-left" id="nombre">
-                <b>Nombre</b>: Cristóbal Mesías
+                <b>Nombre</b>: <?php echo $value['nombre_solicitante'] ?>
             </div>
             <div class="col-4 text-center" id="email">
-                <b>Email</b>: cmesias@mail.cl
+                <b>Email</b>: <?php echo $value['email_solicitante'] ?>
             </div>
             <div class="col-4 text-right" id="celular">
-                <b>Telefono:</b> +569 12345678
+                <b>Telefono:</b> <?php echo $value['celular_solicitante'] ?>
             </div>
         </div>
 

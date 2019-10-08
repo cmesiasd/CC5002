@@ -1,3 +1,12 @@
+<?php
+require_once('db_config.php');
+require_once('consultas.php');
+require_once('diccionario.php');
+$db = DbConfig::getConnection();
+$pedidos = getPedidos($db);
+$db->close();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -20,6 +29,7 @@
 		<h1 class="titulo">Listado de pedidos!</h1>
 	</div>
 
+
 	<div class="container">
 		<table class="table table-hover">
 			<!--  Cabecera de la tabla -->
@@ -28,55 +38,26 @@
 					<th scope="col">Nombre disfraz</th>
 					<th scope="col">Categoría</th>
 					<th scope="col">Talla</th>
-					<th scope="col">Región</th>
 					<th scope="col">Comuna</th>
 					<th scope="col">Nombre Solicitante</th>
 				</tr>
 			</thead>
 			<!-- Datos de la tabla -->
 			<tbody>
-				<tr>
-					<th scope="row"><a href="fichaPedido.php">Spider-Man</a></th>
-					<td>Hombre</td>
-					<td>S</td>
-					<td>Metropolitana</td>
-					<td>Santiago</td>
-					<td>Cristóbal Mesías</td>
-				</tr>
-				<tr>
-					<th scope="row"><a href="fichaPedido.php">Spider-Man</a></th>
-					<td>Hombre</td>
-					<td>L</td>
-					<td>Metropolitana</td>
-					<td>Santiago</td>
-					<td>Juan Pérez</td>
-				</tr>
-				<tr>
-					<th scope="row"><a href="fichaPedido.php">Spider-Man</a></th>
-					<td>Hombre</td>
-					<td>L</td>
-					<td>Metropolitana</td>
-					<td>Santiago</td>
-					<td>Juan Pérez</td>
-				</tr>
-				<tr>
-					<th scope="row"><a href="fichaPedido.php">Spider-Man</a></th>
-					<td>Hombre</td>
-					<td>L</td>
-					<td>Metropolitana</td>
-					<td>Santiago</td>
-					<td>Juan Pérez</td>
-				</tr>
-				<tr>
-					<th scope="row"><a href="fichaPedido.php">Spider-Man</a></th>
-					<td>Hombre</td>
-					<td>L</td>
-					<td>Metropolitana</td>
-					<td>Santiago</td>
-					<td>Juan Pérez</td>
-				</tr>
+			
+				<?php foreach ($pedidos as $pedido => $value) {?>
+					<tr>
+					 	<th scope="row"><a href="fichaPedido.php?id=<?php echo $value['id'] ?> "><?php echo $value['nombre_disfraz']?></a></th>
+				 		<td><?php echo getCategoriaNombre($value['categoria'])?></td>
+				 		<td><?php echo getTallaNombre($value['talla'])?></td>
+				 		<td><?php echo getComunaNombre($value['comuna_solicitante'])?></td>
+				 		<td><?php echo $value['nombre_solicitante']?></td>
+				 	</tr>
+				<?php } ?>
+				
 			</tbody>
 		</table>
+		
 	</div>
 
 </body>

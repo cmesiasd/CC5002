@@ -1,3 +1,16 @@
+<?php
+require_once('db_config.php');
+require_once('consultas.php');
+require_once('diccionario.php');
+$db = DbConfig::getConnection();
+// $infoXpagina = 5;
+// $contar = $db->query("SELECT count(*) AS cuenta FROM pedido");
+// $cuenta = $contar->fetch_assoc()['cuenta'];
+// $paginas = ceil($cuenta/$infoXpagina);
+$disfraces = getDisfraces($db);
+$db->close();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -26,7 +39,6 @@
 			<thead class="thead bg-dark">
 				<tr class="table-head">
 					<th scope="col">Nombre disfraz</th>
-					<th scope="col">Región</th>
 					<th scope="col">Comuna</th>
 					<th scope="col">Categoría</th>
 					<th scope="col">Talla</th>
@@ -35,46 +47,16 @@
 			</thead>
 			<!-- Datos de la tabla -->
 			<tbody>
+
+				<?php foreach ($disfraces as $disfraz => $value) {?>
 				<tr>
-					<th scope="row"> <a href="fichaDisfraz.php"> Spider-Man </a></th>
-					<td>Metropolitana</td>
-					<td>Santiago</td>
-					<td>Hombre</td>
-					<td>M</td>
-					<td>Gabriel Iturra</td>
+					<th scope="row"> <a href="fichaDisfraz.php?id=<?php echo $value['id'] ?> "><?php echo $value['nombre_disfraz']?></a></th>
+					<td><?php echo getComunaNombre($value['comuna'])?></td>
+					<td><?php echo getCategoriaNombre($value['categoria'])?></td>
+				 	<td><?php echo getTallaNombre($value['talla'])?></td>
+					<td><?php echo $value['nombre_contacto']?></td>
 				</tr>
-				<tr>
-					<th scope="row"> <a href="fichaDisfraz.php"> Jack Sparrow </a></th>
-					<td>Maule</td>
-					<td>Talca</td>
-					<td>Hombre</td>
-					<td>L</td>
-					<td>Jose Urzua</td>
-				</tr>
-				<tr>
-					<th scope="row"> <a href="fichaDisfraz.php">Chavo del 8</a></th>
-					<td>Maule</td>
-					<td>Talca</td>
-					<td>Infantil niño</td>
-					<td>12-14 años</td>
-					<td>Pablo Pizarro</td>
-				</tr>
-				<tr>
-					<th scope="row"> <a href="fichaDisfraz.php">Cenicienta</a></th>
-					<td>Valparaíso</td>
-					<td>Viña del Mar</td>
-					<td>Mujer</td>
-					<td>S</td>
-					<td>Valentina Gonzalez</td>
-				</tr>
-				<tr>
-					<th scope="row"><a href="fichaDisfraz.php">Blancanieves </a></th>
-					<td>Valparaíso</td>
-					<td>Viña del Mar</td>
-					<td>Infantil niña</td>
-					<td>10-11 años</td>
-					<td>Rocío Díaz</td>
-				</tr>
+				<?php } ?>
 			</tbody>
 		</table>
 	</div>

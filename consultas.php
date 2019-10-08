@@ -21,7 +21,7 @@ function saveDisfraz($db, $foto_disfraz, $comuna, $nombre_disfraz, $descripcion,
         for ($x = 0; $x < 5; $x++) {
             if(isset($_FILES["foto-disfraz-".(string)$x])){
                 if($_FILES["foto-disfraz-".(string)$x]['name']!=""){
-                    $uploadedFile = $uploadDir . "0". strval($last_id) . basename($_FILES["foto-disfraz-".strval($x)]['name']);
+                    $uploadedFile = $uploadDir . strval($x) . strval($last_id) . basename($_FILES["foto-disfraz-".strval($x)]['name']);
                     move_uploaded_file($_FILES["foto-disfraz-".strval($x)]['tmp_name'], $uploadedFile);
                     $ruta_archivo_bd = $uploadDir;
                     $nombre_archivo_bd = strval($x) . strval($last_id) . $_FILES["foto-disfraz-".strval($x)]['name'] ;
@@ -99,4 +99,38 @@ function getTallas($db){
 	}
 	return $res;
 }
+
+function getPedidos($db){
+	$db = DbConfig::getConnection();
+	$sql = "SELECT id, nombre_disfraz, descripcion, categoria, talla, fecha_ingreso, nombre_solicitante, email_solicitante,celular_solicitante, comuna_solicitante FROM pedido ORDER BY id DESC";
+	$result = $db->query($sql);
+	$res = array();
+	while($row = $result->fetch_assoc()){
+		$res[]=$row;
+	}
+	return $res;
+}
+
+function getDisfraces($db){
+	$db = DbConfig::getConnection();
+	$sql = "SELECT id, comuna, nombre_disfraz, descripcion, categoria, talla, fecha_ingreso, nombre_contacto, email_contacto, celular_contacto FROM disfraz ORDER BY id";
+	$result = $db->query($sql);
+	$res = array();
+	while($row = $result->fetch_assoc()){
+		$res[]=$row;
+	}
+	return $res;
+}
+
+ function getFotos($db){
+	$db = DbConfig::getConnection();
+	$sql = "SELECT * FROM foto_disfraz;";
+	$result = $db->query($sql);
+	$res = array();
+	while($row = $result->fetch_assoc()){
+		$res[]=$row;
+	}
+	return $res;
+ }
+
 ?>
