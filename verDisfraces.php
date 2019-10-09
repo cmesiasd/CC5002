@@ -3,11 +3,12 @@ require_once('db_config.php');
 require_once('consultas.php');
 require_once('diccionario.php');
 $db = DbConfig::getConnection();
-// $infoXpagina = 5;
-// $contar = $db->query("SELECT count(*) AS cuenta FROM pedido");
-// $cuenta = $contar->fetch_assoc()['cuenta'];
-// $paginas = ceil($cuenta/$infoXpagina);
 $disfraces = getDisfraces($db);
+
+$datosXpagina = 5;
+$contar = $db->query("SELECT count(*) AS cuenta FROM disfraz");
+$cuenta = $contar->fetch_assoc()['cuenta'];
+$paginas = ceil($cuenta/$datosXpagina);
 $db->close();
 ?>
 
@@ -29,6 +30,11 @@ $db->close();
 </head>
 
 <body>
+	<?php
+		if(!$_GET){
+            header('Location:verDisfraces.php?pagina=1');
+        }
+    ?>
 	<div class="container-fluid bg-dark">
 		<h1 class="titulo">Listado de disfraces!</h1>
 	</div>
@@ -50,15 +56,41 @@ $db->close();
 
 				<?php foreach ($disfraces as $disfraz => $value) {?>
 				<tr>
-					<th scope="row"> <a href="fichaDisfraz.php?id=<?php echo $value['id'] ?> "><?php echo $value['nombre_disfraz']?></a></th>
+					<th scope="row"> <a
+							href="fichaDisfraz.php?id=<?php echo $value['id'] ?> "><?php echo $value['nombre_disfraz']?></a>
+					</th>
 					<td><?php echo getComunaNombre($value['comuna'])?></td>
 					<td><?php echo getCategoriaNombre($value['categoria'])?></td>
-				 	<td><?php echo getTallaNombre($value['talla'])?></td>
+					<td><?php echo getTallaNombre($value['talla'])?></td>
 					<td><?php echo $value['nombre_contacto']?></td>
 				</tr>
 				<?php } ?>
 			</tbody>
 		</table>
+		<nav>
+			<ul class="pagination">
+				<li class="page-item <?php echo $_GET['pagina'] <= 1 ? 'disabled' : '' ?>">
+					<a class="page-link"
+						href="verDisfraces.php?pagina=<?php echo $_GET['pagina'] >= 1? 1: $_GET['paginas'] - 1 ?>">
+						Anterior
+					</a>
+
+				</li>
+
+				<?php for($i = 0; $i < $paginas; $i++){ ?>
+				<li class="page-item
+                            <?php echo $_GET['pagina'] == $i+1 ? 'active' : '' ?>">
+					<a class="page-link" href="verDisfraces.php?pagina=<?php echo $i+1 ?>"><?php echo $i+1 ?></a>
+
+				</li>
+				<?php } ?>
+				<li class="page-item <?php echo $_GET['pagina'] >= $paginas ? 'disabled' : '' ?>">
+					<a class="page-link"
+						href="verDisfraces.php?pagina=<?php echo $_GET['pagina'] >= $paginas ? $paginas : $_GET['pagina'] + 1?>">
+						Siguiente
+					</a>
+				</li>
+		</nav>
 	</div>
 </body>
 

@@ -4,6 +4,11 @@ require_once('consultas.php');
 require_once('diccionario.php');
 $db = DbConfig::getConnection();
 $pedidos = getPedidos($db);
+
+$datosXpagina = 5;
+$contar = $db->query("SELECT count(*) AS cuenta FROM pedido");
+$cuenta = $contar->fetch_assoc()['cuenta'];
+$paginas = ceil($cuenta/$datosXpagina);
 $db->close();
 ?>
 
@@ -25,6 +30,12 @@ $db->close();
 </head>
 
 <body>
+	<?php
+		if(!$_GET){
+            header('Location:verPedidos.php?pagina=1');
+        }
+    ?>
+            
 	<div class="container-fluid bg-dark">
 		<h1 class="titulo">Listado de pedidos!</h1>
 	</div>
@@ -44,20 +55,46 @@ $db->close();
 			</thead>
 			<!-- Datos de la tabla -->
 			<tbody>
-			
+
 				<?php foreach ($pedidos as $pedido => $value) {?>
-					<tr>
-					 	<th scope="row"><a href="fichaPedido.php?id=<?php echo $value['id'] ?> "><?php echo $value['nombre_disfraz']?></a></th>
-				 		<td><?php echo getCategoriaNombre($value['categoria'])?></td>
-				 		<td><?php echo getTallaNombre($value['talla'])?></td>
-				 		<td><?php echo getComunaNombre($value['comuna_solicitante'])?></td>
-				 		<td><?php echo $value['nombre_solicitante']?></td>
-				 	</tr>
+				<tr>
+					<th scope="row"><a
+							href="fichaPedido.php?id=<?php echo $value['id'] ?> "><?php echo $value['nombre_disfraz']?></a>
+					</th>
+					<td><?php echo getCategoriaNombre($value['categoria'])?></td>
+					<td><?php echo getTallaNombre($value['talla'])?></td>
+					<td><?php echo getComunaNombre($value['comuna_solicitante'])?></td>
+					<td><?php echo $value['nombre_solicitante']?></td>
+				</tr>
 				<?php } ?>
-				
+
 			</tbody>
 		</table>
-		
+
+		<nav>
+			<ul class="pagination">
+				<li class="page-item <?php echo $_GET['pagina'] <= 1 ? 'disabled' : '' ?>">
+					<a class="page-link"
+						href="verPedidos.php?pagina=<?php echo $_GET['pagina'] >= 1? 1: $_GET['paginas'] - 1 ?>">
+						Anterior
+					</a>
+
+				</li>
+
+				<?php for($i = 0; $i < $paginas; $i++){ ?>
+				<li class="page-item
+                            <?php echo $_GET['pagina'] == $i+1 ? 'active' : '' ?>">
+					<a class="page-link" href="verPedidos.php?pagina=<?php echo $i+1 ?>"><?php echo $i+1 ?></a>
+
+				</li>
+				<?php } ?>
+				<li class="page-item <?php echo $_GET['pagina'] >= $paginas ? 'disabled' : '' ?>">
+					<a class="page-link"
+						href="verPedidos.php?pagina=<?php echo $_GET['pagina'] >= $paginas ? $paginas : $_GET['pagina'] + 1?>">
+						Siguiente
+					</a>
+				</li>
+		</nav>
 	</div>
 
 </body>

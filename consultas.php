@@ -122,7 +122,7 @@ function getDisfraces($db){
 	return $res;
 }
 
- function getFotos($db){
+function getFotos($db){
 	$db = DbConfig::getConnection();
 	$sql = "SELECT * FROM foto_disfraz;";
 	$result = $db->query($sql);
@@ -131,6 +131,6 @@ function getDisfraces($db){
 		$res[]=$row;
 	}
 	return $res;
- }
+}
 
 ?>
