@@ -1,16 +1,4 @@
-<?php
-require_once('db_config.php');
-require_once('consultas.php');
-require_once('diccionario.php');
-$db = DbConfig::getConnection();
-$pedidos = getPedidos($db);
 
-$datosXpagina = 5;
-$contar = $db->query("SELECT count(*) AS cuenta FROM pedido");
-$cuenta = $contar->fetch_assoc()['cuenta'];
-$paginas = ceil($cuenta/$datosXpagina);
-$db->close();
-?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -34,7 +22,24 @@ $db->close();
 		if(!$_GET){
             header('Location:verPedidos.php?pagina=1');
         }
-    ?>
+
+		require_once('db_config.php');
+		require_once('consultas.php');
+		require_once('diccionario.php');
+		$db = DbConfig::getConnection();
+		$datosXpagina = 5;
+		$contar = $db->query("SELECT count(*) AS cuenta FROM pedido");
+		$cuenta = $contar->fetch_assoc()['cuenta'];
+		$paginas = ceil($cuenta/$datosXpagina);
+		$pagina = (int)$_GET['pagina'];
+		if($pagina ==1){
+			$pedidos = getPedidos($db);
+		} else {
+			$pagina--;
+			$pedidos = getXPedidos($db,$datosXpagina * $pagina);
+		}
+		$db->close();
+	?>
             
 	<div class="container-fluid bg-dark">
 		<h1 class="titulo">Listado de pedidos!</h1>

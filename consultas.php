@@ -102,7 +102,18 @@ function getTallas($db){
 
 function getPedidos($db){
 	$db = DbConfig::getConnection();
-	$sql = "SELECT id, nombre_disfraz, descripcion, categoria, talla, fecha_ingreso, nombre_solicitante, email_solicitante,celular_solicitante, comuna_solicitante FROM pedido ORDER BY id DESC";
+	$sql = "SELECT id, nombre_disfraz, descripcion, categoria, talla, fecha_ingreso, nombre_solicitante, email_solicitante,celular_solicitante, comuna_solicitante FROM pedido ORDER BY id DESC LIMIT 5";
+	$result = $db->query($sql);
+	$res = array();
+	while($row = $result->fetch_assoc()){
+		$res[]=$row;
+	}
+	return $res;
+}
+
+function getXPedidos($db, $x){
+	$db = DbConfig::getConnection();
+	$sql = "SELECT id, nombre_disfraz, descripcion, categoria, talla, fecha_ingreso, nombre_solicitante, email_solicitante,celular_solicitante, comuna_solicitante FROM pedido ORDER BY id DESC LIMIT 5, $x";
 	$result = $db->query($sql);
 	$res = array();
 	while($row = $result->fetch_assoc()){
@@ -113,7 +124,7 @@ function getPedidos($db){
 
 function getDisfraces($db){
 	$db = DbConfig::getConnection();
-	$sql = "SELECT id, comuna, nombre_disfraz, descripcion, categoria, talla, fecha_ingreso, nombre_contacto, email_contacto, celular_contacto FROM disfraz ORDER BY id";
+	$sql = "SELECT id, comuna, nombre_disfraz, descripcion, categoria, talla, fecha_ingreso, nombre_contacto, email_contacto, celular_contacto FROM disfraz ORDER BY id LIMIT 5";
 	$result = $db->query($sql);
 	$res = array();
 	while($row = $result->fetch_assoc()){
@@ -121,6 +132,19 @@ function getDisfraces($db){
 	}
 	return $res;
 }
+
+function getXDisfraces($db, $x){
+	$db = DbConfig::getConnection();
+	$sql = "SELECT id, comuna, nombre_disfraz, descripcion, categoria, talla, fecha_ingreso, nombre_contacto, email_contacto, celular_contacto FROM disfraz ORDER BY id LIMIT 5, $x";
+	$result = $db->query($sql);
+	$res = array();
+	while($row = $result->fetch_assoc()){
+		$res[]=$row;
+	}
+	return $res;
+}
+
+
 
 function getFotos($db){
 	$db = DbConfig::getConnection();
