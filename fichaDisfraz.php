@@ -21,6 +21,7 @@ $fotos = getFotoDisfraz($id_disfraz);
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 
     <script src="js/jquery-3.4.1.min.js"></script>
     <title>Reciclador de Disfraces</title>
@@ -28,7 +29,25 @@ $fotos = getFotoDisfraz($id_disfraz);
 
 <body>
     <div class="container-fluid bg-dark">
-        <h1 class="titulo">Ficha del disfraz!</h1>
+        <div class="row bg-dark p-0">
+            <div class="col-8 py-0 bg-dark justify-content-center">
+                <h1 class="titulo">Ficha del disfraz</h1>
+            </div>
+            <div class="col-4 p-0 bg-dark float-right">
+                <form class="form-inline md-form form-sm active-cyan-2 mt-2">
+                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Buscar..."
+                        aria-label="Search" id="search">
+                    <i class="fa fa-search icono fa-2x icono" aria-hidden="true"></i>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-transparent" id="content-result">
+        <div class="row justify-content-center bg-transparent">
+            <h3> Resultados de busqueda: </h3>
+            <div id="result"></div>
+        </div>
     </div>
 
     <div class="container">
@@ -105,6 +124,7 @@ $fotos = getFotoDisfraz($id_disfraz);
 
     <!-- Scripts -->
     <script src="js/modal.js"></script>
+    <script src="js/search.js"></script>
 
 </body>
 

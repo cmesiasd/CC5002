@@ -100,3 +100,30 @@ h2.titulo {
 h4.titulo {
     color: #0057f8 !important;
 }
+
+.icono{
+    color: #0057f8;
+}
+
+
+.active-cyan-2 input[type=text]:focus:not([readonly]) {
+    border: 1px solid #0057f8;
+    box-shadow: 0 1px 0 0 #0057f8;
+    }
+
+.active-cyan .fa, .active-cyan-2 .fa {
+    color: #0057f8;
+}
+
+#map{
+    width: 600px; 
+    height: 400px; 
+}
+
+#result{
+    width: 300px;
+}
+
+#content-result{
+    visibility: hidden;
+}
