@@ -3,8 +3,8 @@ if(!isset($_POST['search'])) exit('No se recibió el valor a buscar');
 
 require_once('db_config.php');
 
-function search()
-{
+function search(){
+  
   $mysqli = DbConfig::getConnection();
   $search = $mysqli->real_escape_string($_POST['search']);
   $query = "SELECT id, comuna, nombre_disfraz FROM disfraz WHERE nombre_disfraz LIKE '%$search%'";

@@ -26,7 +26,7 @@ function loadJSON() {
 
             jsonObj.forEach(element => {
                 $.ajax({
-                    url: "php/search2.php",
+                    url: "searchcomuna.php",
                     success: function (result) {
                         var jsonObj2 = JSON.parse(result);
 
@@ -37,30 +37,31 @@ function loadJSON() {
                             if (b == a) {
 
                                 var popup = "<table >";
-                                var c = 0;
+                                var count_img = 0;
                                 for (var i in jsonObj2[element2]) {
-                                    var mostar_info = "<td>"
+                                    var mostrar_info = "<td>"
                                     info = jsonObj2[element2][i];
-                                    var name = info['nombre_contacto'];
-                                    var pet = info['tipo_mascota'];
-                                    var date = info['fecha_viaje'];
-                                    var imagenes = info["imagenes"];
-                                    var mostar_img = '<i>'
-                                    for (var j in imagenes) {
-                                        mostar_img += "<a href='" + '/cc5002-T2' +
-                                            imagenes[j] + "'>link</a>"
-                                    }
-                                    c += imagenes.length
-                                    mostar_info += " Contacto: " + name + " mascota: " +
-                                        pet + " Fecha: " + date + '</td>';
-
-                                    popup += mostar_info + mostar_img + '</i>';
+                                    var nombre_comuna = info['nombre_comuna'];
+                                    var nombre_disfraz = info["nombre_disfraz"];
+                                    var nombre_contacto = info["nombre_contacto"];
+                                    var categoria = info["categoria"];
+                                    var talla = info["talla"];
+                                    var id = info["id"];                           
+                                    count_img = info['count_img']
+                                    mostrar_info += "<a href='fichaDisfraz.php?id=" + id + "'>" + 
+                                                    "<b>Comuna:</b> " + nombre_comuna + 
+                                                    "<br><b>Nombre Disfraz: </b>" + nombre_disfraz +
+                                                    "<br><b>Categoria: </b>" + categoria +
+                                                    "<br><b>Talla: </b> " + talla +
+                                                    "<br><b>Nombre Contacto: </b>" + nombre_contacto + '</a></td>';
+                                    popup += mostrar_info;
+                                    
                                 }
                                 popup = popup + "</table>";
 
                                 var marker = L.marker([element.lat, element.lng], {
                                             draggable: true, // Make the icon dragable
-                                            title: c, // Add a title
+                                            title: count_img, // Add a title
                                         } // Adjust the opacity
                                     ).addTo(mymap).bindPopup(popup)
                                     .openPopup();

@@ -67,7 +67,8 @@
                         maxZoom: 18,
                         id: 'mapbox.streets'
                     }).addTo(mymap);
-
+                    
+                    loadJSON();
                 </script>
             </div>
         </div>
